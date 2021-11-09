@@ -3,6 +3,7 @@ package com.java.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -47,7 +48,7 @@ public class Department { //1. POJO/entity is done
 	@Column(name="loc")
 	private String departmentLocation;
 	
-	@OneToMany(mappedBy = "dept") //one Department has Many Employees
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "dept") //one Department has Many Employees
 	private Set<Employee> empSet = new HashSet<Employee>();
 	
 	
