@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+
+  <body>
+<h2>Showing all the Departments</h2>
+
+<table border=5 cellspacing=5 cellpadding=5>
+    <tr>
+        <td><button class="btn btn-block" style="background-color: #0689f5" (click)="getAllDepartments()"> Show All Departments</button>
+        </td>
+        <th> Department Number </th> 
+        <th> Department Name </th> 
+        <th> Department Location </th> 
+    </tr>
+    <tr>
+    <td> <input type=number id="deptObj.departmentNumber" [(ngModel)]="deptObj.departmentNumber"> </td>
+    <td> <input type=text id="deptObj.departmentName" [(ngModel)]="deptObj.departmentName"> </td>
+    <td> <input type=text id="deptObj.departmentLocation" [(ngModel)]="deptObj.departmentLocation"> </td>
+    <td><button class="btn btn-block" style="background-color: #9df019" (click)="saveDepartment()"> Save Department</button></td>
+    
+</tr>
+    <tr *ngFor="let deptObj of deptArray">
+           <td> {{ deptObj.departmentNumber }}</td> 
+           <td> <input type=text id="deptObj.departmentName" [(ngModel)]="deptObj.departmentName"> </td> 
+           <td> <input type=text id="deptObj.departmentLocation" [(ngModel)]="deptObj.departmentLocation">  </td>
+           <td> <button class="btn btn-block" style="background-color: #ff9f00" (click)="updateDepartmentByDeptObject(deptObj)"> Update </button> </td>
+           <td> <button class="btn btn-block" style="background-color: #f81911" (click)="deleteDepartmentByDeptno(deptObj.departmentNumber)"> Delete </button> </td>
+ 
+    </tr>
+
+</table>
+
+<hr>
+<H3> INSERT TEST </H3>
+Enter new dept number <input type=number id="deptObj.departmentNumber" [(ngModel)]="deptObj.departmentNumber"> <br>
+Enter new dept name <input type=text id="deptObj.departmentName" [(ngModel)]="deptObj.departmentName"> <br>
+Enter new dept location <input type=text id="deptObj.departmentLocation" [(ngModel)]="deptObj.departmentLocation"> <br>
+<button (click)="saveDepartment()"> Save Department</button>
+
+<hr>
+<H3> UPDATE TEST </H3>
+For which dept number <input type=number id="deptObj.departmentNumber" [(ngModel)]="deptObj.departmentNumber"> <br>
+Enter new dept name <input type=text id="deptObj.departmentName" [(ngModel)]="deptObj.departmentName"> <br>
+Enter new dept location <input type=text id="deptObj.departmentLocation" [(ngModel)]="deptObj.departmentLocation"> <br>
+<button (click)="updateDepartment()"> Update Department</button>
+
+<hr>
+<H3> DELETE TEST </H3>
+Enter dept number to delete <input type=number id="deptNumberToDelete" [(ngModel)]="deptNumberToDelete"> <br>
+<button (click)="deleteDepartment()"> Delete Department</button>
+</body>
+</html>
